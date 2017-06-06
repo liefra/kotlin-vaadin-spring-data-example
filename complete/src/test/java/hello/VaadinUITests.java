@@ -101,8 +101,8 @@ public class VaadinUITests {
 
 	private void customerDataWasFilled(CustomerEditor editor, String firstName,
 			String lastName) {
-		this.editor.firstName.setValue(firstName);
-		this.editor.lastName.setValue(lastName);
+		this.editor.getFirstName().setValue(firstName);
+		this.editor.getLastName().setValue(lastName);
 		editor.editCustomer(new Customer(firstName, lastName));
 	}
 

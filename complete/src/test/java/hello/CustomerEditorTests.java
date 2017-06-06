@@ -22,8 +22,8 @@ public class CustomerEditorTests {
 
 	@Test
 	public void shouldStoreCustomerInRepoWhenEditorSaveClicked() {
-		this.editor.firstName.setValue(FIRST_NAME);
-		this.editor.lastName.setValue(LAST_NAME);
+		this.editor.getFirstName().setValue(FIRST_NAME);
+		this.editor.getLastName().setValue(LAST_NAME);
 		customerDataWasFilled();
 
 		this.editor.save.click();
@@ -33,8 +33,8 @@ public class CustomerEditorTests {
 
 	@Test
 	public void shouldDeleteCustomerFromRepoWhenEditorDeleteClicked() {
-		this.editor.firstName.setValue(FIRST_NAME);
-		this.editor.lastName.setValue(LAST_NAME);
+		this.editor.getFirstName().setValue(FIRST_NAME);
+		this.editor.getLastName().setValue(LAST_NAME);
 		customerDataWasFilled();
 
 		editor.delete.click();

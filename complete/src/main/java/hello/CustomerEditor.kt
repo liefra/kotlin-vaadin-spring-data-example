@@ -1,17 +1,15 @@
 package hello
 
-import org.springframework.beans.factory.annotation.Autowired
-
+import com.github.vok.karibudsl.*
 import com.vaadin.data.Binder
-import com.vaadin.event.ShortcutAction
 import com.vaadin.server.FontAwesome
 import com.vaadin.spring.annotation.SpringComponent
 import com.vaadin.spring.annotation.UIScope
 import com.vaadin.ui.Button
-import com.vaadin.ui.CssLayout
 import com.vaadin.ui.TextField
 import com.vaadin.ui.VerticalLayout
 import com.vaadin.ui.themes.ValoTheme
+import org.springframework.beans.factory.annotation.Autowired
 
 /**
  * A simple example to introduce building forms. As your real application is probably much
@@ -33,34 +31,39 @@ class CustomerEditor @Autowired constructor(private val repository: CustomerRepo
     private var customer: Customer? = null
 
     /* Fields to edit properties in Customer entity */
-    internal var firstName = TextField("First name")
-    internal var lastName = TextField("Last name")
+    val firstName: TextField
+    val lastName: TextField
 
     /* Action buttons */
-    internal var save = Button("Save", FontAwesome.SAVE)
-    internal var cancel = Button("Cancel")
-    internal var delete = Button("Delete", FontAwesome.TRASH_O)
-    internal var actions = CssLayout(save, cancel, delete)
-
-    internal var binder = Binder(Customer::class.java)
+    lateinit var save: Button
+    lateinit var cancel: Button
+    lateinit var delete: Button
+    var binder = Binder(Customer::class.java)
 
     init {
+        isSpacing = true
 
-        addComponents(firstName, lastName, actions)
+        firstName = textField("First name")
+        lastName = textField("Last name")
+        cssLayout {
+            styleName = ValoTheme.LAYOUT_COMPONENT_GROUP
+            save = button("Save") {
+                setPrimary()
+                icon = FontAwesome.SAVE
+                onLeftClick { repository.save<Customer>(customer) }
+            }
+            cancel = button("Cancel") {
+                onLeftClick { editCustomer(customer) }
+            }
+            delete = button("Delete") {
+                icon = FontAwesome.TRASH_O
+                onLeftClick { repository.delete(customer) }
+            }
+        }
 
         // bind using naming convention
         binder.bindInstanceFields(this)
 
-        // Configure and style components
-        isSpacing = true
-        actions.styleName = ValoTheme.LAYOUT_COMPONENT_GROUP
-        save.styleName = ValoTheme.BUTTON_PRIMARY
-        save.setClickShortcut(ShortcutAction.KeyCode.ENTER)
-
-        // wire action buttons to save, delete and reset
-        save.addClickListener { e -> repository.save<Customer>(customer) }
-        delete.addClickListener { e -> repository.delete(customer) }
-        cancel.addClickListener { e -> editCustomer(customer) }
         isVisible = false
     }
 
@@ -94,8 +97,7 @@ class CustomerEditor @Autowired constructor(private val repository: CustomerRepo
     fun setChangeHandler(h: ()->Unit) {
         // ChangeHandler is notified when either save or delete
         // is clicked
-        save.addClickListener { e -> h() }
-        delete.addClickListener { e -> h() }
+        save.addClickListener { h() }
+        delete.addClickListener { h() }
     }
-
 }
