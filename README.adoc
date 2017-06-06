@@ -9,6 +9,8 @@ projects: [spring-data-jpa, spring-boot]
 
 This guide walks you through the process of building an application that uses a https://vaadin.com[Vaadin based UI] on a Spring Data JPA based backend.
 
+The `complete` example has been converted to Kotlin and uses Karibu-DSL for UI creation.
+
 == What you'll build
 
 You'll build a Vaadin UI for a simple JPA repository. What you'll get is an app with full CRUD (Create, Read, Update, Delete) functionality and a filtering example that uses a custom repository method.
