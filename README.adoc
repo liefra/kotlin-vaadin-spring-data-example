@@ -8,9 +8,12 @@ The example app also uses https://github.com/mvysny/karibu-dsl[Karibu-DSL (Vaadi
 
 To start the project, just type this into your terminal:
 
+[.console]
+----
 $ git clone https://github.com/mvysny/gs-crud-with-vaadin
 $ cd gs-crud-with-vaadin
 $ ./gradlew bootRun
+----
 
 The app is now running on http://localhost:8080
 
