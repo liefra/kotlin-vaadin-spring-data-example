@@ -1,7 +1,7 @@
 package hello
 
 import com.github.vok.karibudsl.*
-import com.vaadin.server.FontAwesome
+import com.vaadin.icons.VaadinIcons
 import com.vaadin.server.VaadinRequest
 import com.vaadin.shared.ui.ValueChangeMode
 import com.vaadin.spring.annotation.SpringUI
@@ -27,7 +27,7 @@ class VaadinUI @Autowired constructor(private val repo: CustomerRepository, priv
                     addValueChangeListener { e -> listCustomers(e.value) }
                 }
                 button("New customer") {
-                    icon = FontAwesome.PLUS
+                    icon = VaadinIcons.PLUS
                     // Instantiate and edit new Customer the new button is clicked
                     onLeftClick { editor.editCustomer(Customer("", "")) }
                 }
