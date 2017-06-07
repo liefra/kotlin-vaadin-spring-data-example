@@ -9,7 +9,7 @@ projects: [spring-data-jpa, spring-boot]
 
 This guide walks you through the process of building an application that uses a https://vaadin.com[Vaadin based UI] on a Spring Data JPA based backend.
 
-The `complete` example has been converted to Kotlin and uses Karibu-DSL for UI creation. You can quickly browse to complete/src/main/java/hello[the hello package] to see the Kotlin in action.
+The `complete` example has been converted to Kotlin and uses Karibu-DSL for UI creation. You can quickly browse to link:complete/src/main/java/hello[the hello package] to see the Kotlin in action.
 
 == What you'll build
 
