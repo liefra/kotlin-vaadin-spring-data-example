@@ -12,8 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.util.StringUtils
 
 @SpringUI
-class VaadinUI @Autowired
-constructor(private val repo: CustomerRepository, private val editor: CustomerEditor) : UI() {
+class VaadinUI @Autowired constructor(private val repo: CustomerRepository, private val editor: CustomerEditor) : UI() {
 
     lateinit var grid: Grid<Customer>
     private lateinit var filter: TextField
