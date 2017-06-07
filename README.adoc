@@ -4,9 +4,16 @@ This is an example project how to build a simple CRUD app with Kotlin, Spring (B
 
 The example app also uses https://github.com/mvysny/karibu-dsl[Karibu-DSL (Vaadin Kotlin Extensions)] to make the UI code feel more native in terms of Kotlin usage.
 
-Feel free to use it as a basis of your next project and propose improvements (issues or pull requests) to both this example or to Karibu-DSL.
-
 == Trying it out
 
-The easiest way to get started with this project is to clone it from Github (or download the zip) and executing "mvn spring-boot:run", but most probably you'll want to just import it to your favourite IDE and start playing around with it!
+To start the project, just type this into your terminal:
 
+$ git clone https://github.com/mvysny/gs-crud-with-vaadin
+$ cd gs-crud-with-vaadin
+$ ./gradlew bootRun
+
+The app is now running on http://localhost:8080
+
+You can also run the project by Maven: just execute "mvn spring-boot:run". Most probably you'll want to just import it to your favourite IDE and start playing around with it!
+
+Feel free to use it as a basis of your next project and propose improvements (issues or pull requests) to both this example or to Karibu-DSL.
