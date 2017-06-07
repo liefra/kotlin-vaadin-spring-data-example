@@ -16,7 +16,7 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'gs-crud-with-vaadin'
+    baseName = 'crud-with-kotlin-spring-and-vaadin'
     version =  '0.1.0'
 }
 
