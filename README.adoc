@@ -17,6 +17,6 @@ $ ./gradlew bootRun
 
 The app is now running on http://localhost:8080
 
-You can also run the project by Maven: just execute "mvn spring-boot:run". Most probably you'll want to just import it to your favourite IDE and start playing around with it!
+You can also run the project by Maven: just execute `./mvnw spring-boot:run`. Most probably you'll want to just import it to your favourite IDE and start playing around with it!
 
 Feel free to use it as a basis of your next project and propose improvements (issues or pull requests) to both this example or to Karibu-DSL.
