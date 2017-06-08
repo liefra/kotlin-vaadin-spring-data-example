@@ -8,11 +8,10 @@ import com.vaadin.spring.annotation.SpringUI
 import com.vaadin.ui.Grid
 import com.vaadin.ui.TextField
 import com.vaadin.ui.UI
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.util.StringUtils
 
 @SpringUI
-class VaadinUI @Autowired constructor(private val repo: CustomerRepository, private val editor: CustomerEditor) : UI() {
+class VaadinUI(private val repo: CustomerRepository, private val editor: CustomerEditor) : UI() {
 
     lateinit var grid: Grid<Customer>
     private lateinit var filter: TextField
